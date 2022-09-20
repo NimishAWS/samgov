@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Scraping</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Scraping</h1><br>
+        <form action="/scrap" method="POST" onsubmit="myFunction()">
+            <input class="form-control" type="url" name="url" id="url" placeholder="Enter your url" onkeyup="saveValue(this);">
+            <button type="Submit" class="file_submit" onsubmit="myFunction()">Scrap</button>
+        </form>
+        {% if url %}
+            <p id="myPopup">Loading...</p>        
+        {% endif %}
+    </div>
+    <div id="myPopup">
+        <p>Loading...</p>            
+    </div>
+    <script>
+        document.getElementById('url').value = getSavedValue('url');
+
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
